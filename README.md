@@ -1,5 +1,3 @@
-Here is the updated README with the requested changes:
-
 # markdown2dokuwiki - Convert and Transfer Markdown Files to DokuWiki
 
 ## Overview
@@ -34,25 +32,28 @@ This script is built upon the groundwork laid by [obsidian2dokuwiki](https://git
    ```bash
    git clone https://github.com/gitayam/markdown2dokuwiki.git
    cd markdown2dokuwiki
+   PWD=$(pwd)
    ```
 
 2. **Make the Script Executable**:
    ```bash
-   chmod +x md2doku.sh
+   chmod +x $PWD'/md2doku.sh"
    ```
 
 3. **Create an Alias or Move the Script**:
-   To run the script from any directory, you can create an alias or move the script to a directory in your PATH.
+   To run the script from any directory, you can create an alias OR move the script to a directory in your PATH. You DON'T need to do both.
 
+   This will leave the script in the cloned repository directory but allow you to run it from any location using the alias of the absolute path.
    **Create an Alias**:
    ```bash
-   echo 'alias md2doku="/path/to/markdown2dokuwiki/md2doku.sh"' >> ~/.bashrc
+   echo 'alias md2doku="'$PWD'/md2doku.sh"' >> ~/.bashrc
    source ~/.bashrc
    ```
 
+   Use this option if you want to run the script from any directory without moving it.
    **Move the Script**:
    ```bash
-   sudo mv /path/to/markdown2dokuwiki/md2doku.sh /usr/local/bin/md2doku
+   sudo mv $PWD/md2doku.sh /usr/local/bin/md2doku
    ```
 
 ## Usage
@@ -101,8 +102,3 @@ The script includes a few configurable variables that you may need to adjust bas
 - **Permission Issues**: Ensure you have the necessary permissions to create directories and install packages.
 - **Package Installation**: If the script fails to install a package, manually install it and rerun the script.
 - **Docker Access**: Ensure Docker is running and you have access to the specified container.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
